@@ -17,11 +17,9 @@ class Player(pygame.sprite.Sprite):
         self.acc = vec(0, 0)
 
     def jump(self):
-        # jump only if standing on a platform
-        self.rect.y += 0.1
-        self.rect.y -= 0.1
-        if self.pos.y == 680:
-            self.vel.y = -20
+        self.rect.y += 1
+        self.vel.y = -20
+        
 
     def update(self):
         self.acc = vec(0, PLAYER_GRAVITY)
@@ -40,8 +38,8 @@ class Player(pygame.sprite.Sprite):
             self.pos.x = WIDTH
         if self.pos.x < 0:
             self.pos.x = 0
-        if self.pos.y > 640:
-            self.pos.y = 640
+        if self.pos.y > 360:
+            self.pos.y = 360
 
         self.rect.midbottom = self.pos
 
